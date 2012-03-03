@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <modules>
+        <N98_ManageRules>
+            <version>1.0.0</version>
+        </N98_ManageRules>
+    </modules>
+    <global>
+        <blocks>
+            <n98_managerules>
+                <class>N98_ManageRules_Block</class>
+            </n98_managerules>
+            <adminhtml>
+                <rewrite>
+                    <promo_catalog_grid>N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid</promo_catalog_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+</layout>

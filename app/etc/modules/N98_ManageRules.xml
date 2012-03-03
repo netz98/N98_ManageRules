@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <N98_ManageRules>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+            </depends>
+        </N98_ManageRules>
+    </modules>
+</config>

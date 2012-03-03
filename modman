@@ -1,0 +1,3 @@
+app/code/community/N98/ManageRules      app/code/community/N98/ManageRules
+app/design/adminhtml/default/default/template/n98_managerules       app/design/adminhtml/default/default/template/n98_managerules
+app/etc/modules/*       app/etc/modules/
