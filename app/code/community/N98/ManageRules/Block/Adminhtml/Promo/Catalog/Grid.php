@@ -85,6 +85,9 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
         if (count($rules) > 0) {
             foreach ($rules as $rule) { /* @var $rule Mage_CatalogRule_Model_Rule */
                 foreach ($rule->getWebsiteIds() as $ruleWebsiteId) {
+                    if (!isset($data[$ruleWebsiteId])) {
+                        continue; // for incorrect enterprise edition demo data
+                    }
                     $data[$ruleWebsiteId]['_rules'][] = array(
                         'sort_order' => $rule->getSortOrder(),
                         'is_active'  => $rule->getIsActive(),
@@ -140,7 +143,9 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
     {
         $linkStyle = '';
         $name = $rule->getName();
-        if (!$rule->getIsActive() || $rule->getToDate() < date('Y-m-d')) {
+        if (!$rule->getIsActive()
+            || ($rule->getToDate() < date('Y-m-d') && $rule->getToDate() !== null)
+        ) {
             $linkStyle = 'text-decoration: none;';
             $name = '<span style="text-decoration:line-through; color: #aaa;">' . $name . '</span>';
         }

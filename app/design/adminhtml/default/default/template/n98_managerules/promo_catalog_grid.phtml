@@ -9,6 +9,7 @@
             </tr>
         </thead>
         <tbody
+        <?php if (count($_data) > 0): ?>
         <?php foreach ($_data as $websiteData): ?>
         <tr>
             <td><?php echo $this->formatWebsiteName($websiteData['_object']) ?></td>
@@ -42,6 +43,7 @@
             </td>
         </tr>
         <?php endforeach; ?>
+        <?php endif; ?>
         <tbody>
     </table>
 </div>
