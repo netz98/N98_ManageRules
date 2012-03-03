@@ -20,6 +20,7 @@
                                 <th class="no-link"><span class="nobr"><?php echo Mage::helper('catalogrule')->__('Rule Name') ?></span></th>
                                 <th class="no-link"><span class="nobr"><?php echo Mage::helper('catalogrule')->__('Priority') ?></span></th>
                                 <th class="no-link"><span class="nobr"><?php echo Mage::helper('catalogrule')->__('Stop Further Rules Processing') ?></span></th>
+                                <th class="no-link"><span class="nobr"><?php echo Mage::helper('adminhtml')->__('Customer Groups') ?></span></th>
                                 <th class="no-link"><span class="nobr"><?php echo Mage::helper('catalogrule')->__('Date Start') ?></span></th>
                                 <th class="no-link"><span class="nobr"><?php echo Mage::helper('catalogrule')->__('Date Expire') ?></span></th>
                             </tr>
@@ -30,6 +31,7 @@
                                 <td><?php echo $this->formatRuleName($_rule['_object']) ?></td>
                                 <td><?php echo $this->formatRulePriority($_rule['_object']) ?></td>
                                 <td><?php echo $this->formatRuleStopProcessing($_rule['_object']) ?></td>
+                                <td><?php echo $this->formatCustomerGroups($_rule['_object']) ?></td>
                                 <td><?php echo $this->formatRuleDateStart($_rule['_object']) ?></td>
                                 <td><?php echo $this->formatRuleDateExpire($_rule['_object']) ?></td>
                             </tr>

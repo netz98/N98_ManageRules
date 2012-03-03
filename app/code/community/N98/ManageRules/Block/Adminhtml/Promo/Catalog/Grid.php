@@ -36,11 +36,17 @@
 class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_Block_Promo_Catalog_Grid
 {
     /**
+     * @var array
+     */
+    protected $_customerGroupNames = array();
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
+        $this->_loadCustomerGroupNames();
         $this->setTemplate('n98_managerules/promo_catalog_grid.phtml');
     }
 
@@ -52,6 +58,16 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
         $collection = Mage::getModel('catalogrule/rule')
                 ->getResourceCollection();
         return $collection;
+    }
+
+    /**
+     * @return array
+     */
+    protected function _loadCustomerGroupNames()
+    {
+        $this->_customerGroupNames = Mage::getResourceModel('customer/group_collection')
+                                        ->load()
+                                        ->toOptionHash();
     }
 
     /**
@@ -128,9 +144,10 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
             $linkStyle = 'text-decoration: none;';
             $name = '<span style="text-decoration:line-through; color: #aaa;">' . $name . '</span>';
         }
-        return sprintf('<a href="%s" style="%s">%s</a>',
+        return sprintf('<a href="%s" style="%s" title="%s">%s</a>',
             $this->getUrl('*/promo_catalog/edit', array('id' => $rule->getId())),
             $linkStyle,
+            'ID: ' . $rule->getId(),
             $name
         );
     }
@@ -172,5 +189,19 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
             return '';
         }
         return Mage::helper('core')->formatDate($rule->getToDate());
+    }
+
+    /**
+     * @param Mage_Rule_Model_Rule $rule
+     * @return string
+     */
+    public function formatCustomerGroups(Mage_Rule_Model_Rule $rule)
+    {
+        $names = array();
+        $ids = $rule->getCustomerGroupIds();
+        foreach ($ids as $id) {
+            $names[] = $this->_customerGroupNames[$id];
+        }
+        return implode(', ', $names);
     }
 }
