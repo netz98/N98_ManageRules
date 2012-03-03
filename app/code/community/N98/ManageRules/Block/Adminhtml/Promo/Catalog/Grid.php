@@ -50,15 +50,6 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
         $this->setTemplate('n98_managerules/promo_catalog_grid.phtml');
     }
 
-    /**
-     * @return Mage_CatalogRule_Model_Mysql4_Rule_Collection
-     */
-    protected function _getRuleCollection()
-    {
-        $collection = Mage::getModel('catalogrule/rule')
-                ->getResourceCollection();
-        return $collection;
-    }
 
     /**
      * @return array
@@ -81,7 +72,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
             $data[$website->getId()] = array('_object' => $website, '_rules' => array());
         }
 
-        $rules = $this->_getRuleCollection();
+        $rules =  $this->getCollection();
         if (count($rules) > 0) {
             foreach ($rules as $rule) { /* @var $rule Mage_CatalogRule_Model_Rule */
                 foreach ($rule->getWebsiteIds() as $ruleWebsiteId) {
@@ -191,7 +182,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
     public function formatRuleDateExpire(Mage_Rule_Model_Rule $rule)
     {
         if ($rule->getToDate() == null) {
-            return '&#8734;';
+            return '&#8734;';  // infinity char
         }
         return Mage::helper('core')->formatDate($rule->getToDate());
     }
