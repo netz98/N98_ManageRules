@@ -191,7 +191,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
     public function formatRuleDateExpire(Mage_Rule_Model_Rule $rule)
     {
         if ($rule->getToDate() == null) {
-            return '';
+            return '&#8734;';
         }
         return Mage::helper('core')->formatDate($rule->getToDate());
     }
