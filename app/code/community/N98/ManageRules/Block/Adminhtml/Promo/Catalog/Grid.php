@@ -41,6 +41,11 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
     protected $_customerGroupNames = array();
 
     /**
+     * @var int
+     */
+    protected $_defaultLimit    = PHP_INT_MAX;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -130,7 +135,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
      * @param Mage_Rule_Model_Rule $rule
      * @return string
      */
-    public function formatRuleName(Mage_Rule_Model_Rule $rule)
+    public function formatRuleName(Mage_Rule_Model_Abstract $rule)
     {
         $linkStyle = '';
         $name = $rule->getName();
@@ -152,7 +157,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
      * @param Mage_Rule_Model_Rule $rule
      * @return string
      */
-    public function formatRulePriority(Mage_Rule_Model_Rule $rule)
+    public function formatRulePriority(Mage_Rule_Model_Abstract $rule)
     {
         return $rule->getSortOrder();
     }
@@ -161,7 +166,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
      * @param Mage_Rule_Model_Rule $rule
      * @return string
      */
-    public function formatRuleStopProcessing(Mage_Rule_Model_Rule $rule)
+    public function formatRuleStopProcessing(Mage_Rule_Model_Abstract $rule)
     {
         return $rule->getStopRulesProcessing() ? Mage::helper('catalogrule')->__('Yes') : Mage::helper('catalogrule')->__('No');
     }
@@ -170,7 +175,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
      * @param Mage_Rule_Model_Rule $rule
      * @return string
      */
-    public function formatRuleDateStart(Mage_Rule_Model_Rule $rule)
+    public function formatRuleDateStart(Mage_Rule_Model_Abstract $rule)
     {
         return Mage::helper('core')->formatDate($rule->getFromDate());
     }
@@ -179,7 +184,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
      * @param Mage_Rule_Model_Rule $rule
      * @return string
      */
-    public function formatRuleDateExpire(Mage_Rule_Model_Rule $rule)
+    public function formatRuleDateExpire(Mage_Rule_Model_Abstract $rule)
     {
         if ($rule->getToDate() == null) {
             return '&#8734;';  // infinity char
@@ -191,7 +196,7 @@ class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_
      * @param Mage_Rule_Model_Rule $rule
      * @return string
      */
-    public function formatCustomerGroups(Mage_Rule_Model_Rule $rule)
+    public function formatCustomerGroups(Mage_Rule_Model_Abstract $rule)
     {
         $names = array();
         $ids = $rule->getCustomerGroupIds();
