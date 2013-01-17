@@ -5,7 +5,7 @@
     "description": "Changes the catalog rules representation.",
     "homepage": "https://github.com/netz98/N98_ManageRules",
     "require": {
-        "magento-hackathon/magento-composer-installer": "dev-master"
+        "magento-hackathon/magento-composer-installer": "*"
     },
     "authors":[
         {
