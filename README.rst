@@ -32,4 +32,4 @@ Licence
 
 Copyright
 ---------
-(c) 2012 Company
+(c) 2013 netz98 new media GmbH
