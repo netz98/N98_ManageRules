@@ -1,37 +1,31 @@
 <?php
 /**
- * Copyright © 2012
- * netz98 new media GmbH. All rights reserved.
+ * Magento Module
  *
- * The use and redistribution of this software, either compiled or uncompiled,
- * with or without modifications are permitted provided that the
- * following conditions are met:
+ * NOTICE OF LICENSE
  *
- * 1. Redistributions of compiled or uncompiled source must contain the above
- * copyright notice, this list of the conditions and the following disclaimer:
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * 2. All advertising materials mentioning features or use of this software must
- * display the following acknowledgement:
- * "This product includes software developed by the netz98 new media GmbH, Mainz."
+ * DISCLAIMER
  *
- * 3. The name of the netz98 new media GmbH may not be used to endorse or promote
- * products derived from this software without specific prior written permission.
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
  *
- * 4. License holders of the netz98 new media GmbH are only permitted to
- * redistribute altered software, if this is licensed under conditions that contain
- * a copyleft-clause.
- *
- * This software is provided by the netz98 new media GmbH without any express or
- * implied warranties. netz98 is under no condition liable for the functional
- * capability of this software for a certain purpose or the general usability.
- * netz98 is under no condition liable for any direct or indirect damages resulting
- * from the use of the software.
- * Liability and Claims for damages of any kind are excluded.
+ * @category    N98
+ * @package     N98_ManageRules
+ * @copyright   Copyright (c) 2013 netz98 new media GmbH. (http://www.netz98.de)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
- * @category n98
- * @package N98_ManageRules
+ * Overwrites admin grid view of catalog rules.
  */
 class N98_ManageRules_Block_Adminhtml_Promo_Catalog_Grid extends Mage_Adminhtml_Block_Promo_Catalog_Grid
 {
